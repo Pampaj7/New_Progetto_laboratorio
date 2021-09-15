@@ -1,12 +1,43 @@
 #include <iostream>
 #include "Date.h"
 #include "Diary.h"
-#include "Activities.h"
 #include <fstream>
 #include <vector>
+
 using namespace std;
 
 int main() {
+
+/////////lettura
+    ifstream file(R"(C:\Users\uffa\CLionProjects\New_Progetto_laboratorio\Basket.txt)");
+    vector<std::string> names;
+    string input;
+    string app;
+    while (file >> input) {
+        names.push_back(input);
+    }
+
+    for (string name: names) {
+        cout << name << std::endl; // verifica
+        app = name; //assegnazione
+    }
+
+    ////////////// lettura
+    ifstream fileS(R"(C:\Users\uffa\CLionProjects\New_Progetto_laboratorio\farePizza.txt)");
+    vector<std::string> namesS;
+    string inputS;
+    string appS;
+    while (file >> input) {
+        names.push_back(input);
+    }
+
+    for (string name: names) {
+        cout << name << std::endl; // verifica
+        appS = name; //assegnazione
+    }
+
+
+////////////// dati base
 
     Date d1(1999, Months::February, 28);
     Date d2(2000, Months::September, 12);
@@ -15,6 +46,8 @@ int main() {
     ToDo allenareBicipiti(false, "curl bicipiti", 10, d1);
     ToDo faiSpesa(false, "compra uova e pesce", 2, d1);
     ToDo videogioca(false, "call of duty", 7, d2);
+    ToDo palleggia(false, "palleggio", 9, d2);
+    ToDo faiPasta(false, "stendi pasta", 7, d3);
 
     Activities sport("palestra");
     sport.addToDo(allenareBicipiti);
@@ -25,60 +58,30 @@ int main() {
     Activities relax("relax");
     relax.addToDo(videogioca);
 
+    Activities Basket(app); //app vale basket
+    Basket.addToDo(palleggia);
+    Activities farePizza(appS); //appS vale farePizza
+    farePizza.addToDo(faiPasta);
+
     Diary diariopersonale("il mio todo");
+
     diariopersonale.addActivities(relax);
     diariopersonale.addActivities(sport);
     diariopersonale.addActivities(faccende);
 
 
-    std::ifstream OpenFile(R"(C:\Users\uffa\CLionProjects\New_Progetto_laboratorio\Basket.txt)");
-    char ch;
-    std::string todo;
+//////////// scrittura
 
-    while(!OpenFile.eof())
-    {
-        OpenFile.get(ch);
-        std::cout << ch;
-        todo += ch; // posso immagazzinare una cosa anche come intero?
-
+    //scrittura
+    ofstream fileX;
+    fileX.open((R"(C:\Users\uffa\CLionProjects\New_Progetto_laboratorio\riassuntoAttivita.txt)"));
+    //fileX << "hey"; //output
+    vector<string> namesX;
+    namesX.push_back(diariopersonale.stampActivities());
+    for (string name: namesX) {
+        fileX << name << std::endl;
     }
-    OpenFile.close();  //Fori di testa
-    std::cout << todo << std::endl;
+    file.close();
 
-    std::ifstream OpenFileX(R"(C:\Users\uffa\CLionProjects\New_Progetto_laboratorio\Calcio.txt)");
-    int chr;
-    int t;
-
-    while(!OpenFile.eof())
-    {
-        OpenFile.get(chr);
-        std::cout << chr;
-        t += chr; // posso immagazzinare una cosa anche come intero?
-
-    }
-    OpenFile.close();  //Fori di testa
-    std::cout << t << std::endl;
-
-
-
-/*
-    std::ifstream  geo;
-    std::string line;
-    geo.open(R"((C:\Users\uffa\CLionProjects\New_Progetto_laboratorio\File.txt))", std::ios::in );
-    vector<string> tokens;
-    while(!geo.eof()) {
-
-        getline(geo, line);
-        istringstream iss(line);
-        copy(istream_iterator<string>(iss),
-             istream_iterator<string>(),
-             back_inserter(tokens)
-        );
-    }
-    for (auto i:tokens) {
-        cout << i << ", " ;
-    }
-    cout << endl;
-    */
-        return 0;
+    return 0;
 }

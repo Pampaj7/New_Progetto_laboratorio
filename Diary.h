@@ -17,7 +17,7 @@ public:
 
     void addActivities(const Activities& ac);
     void removeActivities(const Activities& ac);
-
+    std::string stampActivities();
 
 private:
     std::list <Activities> diary;

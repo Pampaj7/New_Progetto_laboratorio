@@ -15,3 +15,10 @@ void Diary::addActivities(const Activities &ac) {
 void Diary::removeActivities(const Activities &ac) {
     diary.remove(ac);
 }
+
+std::string Diary::stampActivities() {
+    std::string act;
+    for (auto itr:diary)
+        act += itr.getTitle() + "\n";
+    return act;
+}
