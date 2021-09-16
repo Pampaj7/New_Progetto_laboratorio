@@ -57,3 +57,18 @@ bool Activities::operator==(const Activities &ac) {
         return true;
     return false;
 }
+
+int Activities::countToDo() {
+    int i=0;
+    for (auto itr:activities)
+        i++;
+    return i;
+}
+
+void Activities::removeLastToDo() {
+    ToDo a;
+    for (auto itr:activities) {
+        a = itr;
+    }
+    activities.remove(a);
+}

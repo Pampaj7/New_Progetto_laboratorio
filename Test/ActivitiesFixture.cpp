@@ -35,3 +35,9 @@ TEST_F (ActivitiesSuite, TestSet) {
     ASSERT_EQ("Madagascar", activ.getTitle()); // test che i set precedenti non hanno modificato la suite
 }
 
+TEST_F(ActivitiesSuite, TestNumberElements) {
+    ASSERT_EQ(2, activ.countToDo()); //ok
+    activ.removeLastToDo();
+    ASSERT_EQ(1, activ.countToDo());
+}
+

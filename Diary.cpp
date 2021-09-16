@@ -30,3 +30,14 @@ const std::string &Diary::getNameDiary() const {
 void Diary::setNameDiary(const std::string &nameDiary) {
     NameDiary = nameDiary;
 }
+
+Diary::Diary() {
+
+}
+
+int Diary::countActivities() {
+    int i=0;
+    for (auto itr:diary)
+        i++;
+    return i;
+}

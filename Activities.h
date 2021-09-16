@@ -12,16 +12,18 @@
 class Activities {
 public:
 
-    explicit Activities(const std::string &title="");//test
+    explicit Activities(const std::string &title="");
     virtual ~Activities();
 
-    const std::string &getTitle() const; //test
+    const std::string &getTitle() const;
     void setTitle(const std::string &title);
-    void addToDo (const ToDo& aDo);
+    void addToDo (const ToDo& aDo);// eccolo
     void removeToDo(const ToDo& aDo);
+    void removeLastToDo();
     bool searchToDo(const ToDo& aDo);
     void modToDo(const ToDo& aDo);
     bool operator == (const Activities& ac);
+    int countToDo ();
 
 
 private:

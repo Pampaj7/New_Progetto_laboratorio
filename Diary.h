@@ -12,16 +12,18 @@
 class Diary {
 public:
 
-    Diary(const std::string &nameDiary);
+    explicit Diary(const std::string &nameDiary);
     virtual ~Diary() = default;
+    Diary();
+    void addActivities(const Activities& ac); //V
+    void removeActivities(const Activities& ac);//V
 
-    void addActivities(const Activities& ac);
-    void removeActivities(const Activities& ac);
     std::string stampActivities();
 
     const std::string &getNameDiary() const;
 
     void setNameDiary(const std::string &nameDiary);
+    int countActivities ();
 
 private:
     std::list <Activities> diary;
