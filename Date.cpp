@@ -43,5 +43,27 @@ Date::~Date() {
 
 }
 
+void Date::setDay(int day) {
+    Date::day = day;
+}
+
+void Date::setYear(int year) {
+    Date::year = year;
+}
+
+void Date::setMonth(Months month) {
+    Date::month = month;
+}
+
+bool Date::operator==(const Date &da) {
+    if (day == da.getDay())
+        if (year == da.getYear())
+            if (month == da.getMonth())
+                return true;
+    return false;
+}
+
+
+
 
 

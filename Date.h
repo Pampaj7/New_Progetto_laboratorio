@@ -20,6 +20,13 @@ public:
     int getDay() const;
     int getYear() const;
 
+    void setDay(int day);
+
+    void setYear(int year);
+
+    void setMonth(Months month);
+
+    bool operator == (const Date& da);
 private:
 
     int day, year;

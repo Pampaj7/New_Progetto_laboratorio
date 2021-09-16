@@ -22,3 +22,11 @@ std::string Diary::stampActivities() {
         act += itr.getTitle() + "\n";
     return act;
 }
+
+const std::string &Diary::getNameDiary() const {
+    return NameDiary;
+}
+
+void Diary::setNameDiary(const std::string &nameDiary) {
+    NameDiary = nameDiary;
+}

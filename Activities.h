@@ -12,16 +12,17 @@
 class Activities {
 public:
 
-    Activities(const std::string &title);
+    explicit Activities(const std::string &title="");//test
     virtual ~Activities();
 
-    const std::string &getTitle() const;
+    const std::string &getTitle() const; //test
     void setTitle(const std::string &title);
     void addToDo (const ToDo& aDo);
     void removeToDo(const ToDo& aDo);
     bool searchToDo(const ToDo& aDo);
     void modToDo(const ToDo& aDo);
     bool operator == (const Activities& ac);
+
 
 private:
     std::list<ToDo> activities;

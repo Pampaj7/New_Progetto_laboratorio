@@ -290,7 +290,7 @@ instead of real ones in your tests.
 
 Sometimes this is impossible as some library you must use may be creating
 threads before `main()` is even reached. In this case, you can try to minimize
-the chance of conflicts by either moving as many activities as possible inside
+the chance of conflicts by either moving as many activ as possible inside
 `EXPECT_DEATH()` (in the extreme case, you want to move everything inside), or
 leaving as few things as possible in it. Also, you can try to set the death test
 style to `"threadsafe"`, which is safer but slower, and see if it helps.

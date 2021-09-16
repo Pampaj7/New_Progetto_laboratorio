@@ -1,4 +1,6 @@
 relax
-palestra
+sport
 faccende
+farePizza
+Basket
 

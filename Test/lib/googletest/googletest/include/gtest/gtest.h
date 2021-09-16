@@ -1149,7 +1149,7 @@ class TestEventListener {
   virtual void OnTestIterationEnd(const UnitTest& unit_test,
                                   int iteration) = 0;
 
-  // Fired after all test activities have ended.
+  // Fired after all test activ have ended.
   virtual void OnTestProgramEnd(const UnitTest& unit_test) = 0;
 };
 

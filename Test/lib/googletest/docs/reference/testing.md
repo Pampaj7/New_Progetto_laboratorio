@@ -1022,7 +1022,7 @@ Fired after each iteration of tests finishes.
 
 `virtual void TestEventListener::OnTestProgramEnd(const UnitTest& unit_test)`
 
-Fired after all test activities have ended.
+Fired after all test activ have ended.
 
 ### TestEventListeners {#TestEventListeners}
 

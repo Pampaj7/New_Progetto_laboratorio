@@ -52,3 +52,11 @@ bool ToDo::operator==(const ToDo &todo) {
                 return true;
     return false;
 }
+
+void ToDo::makeProgeress() {
+    progress = true;
+}
+
+ToDo::ToDo() {
+
+}

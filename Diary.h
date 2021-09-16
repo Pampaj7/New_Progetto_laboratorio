@@ -19,6 +19,10 @@ public:
     void removeActivities(const Activities& ac);
     std::string stampActivities();
 
+    const std::string &getNameDiary() const;
+
+    void setNameDiary(const std::string &nameDiary);
+
 private:
     std::list <Activities> diary;
     std::string NameDiary;
