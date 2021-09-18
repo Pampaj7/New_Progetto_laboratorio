@@ -15,6 +15,12 @@ protected:
 
 TEST_F (DiarySuite, TestConstructor) {
     ASSERT_EQ("Pablo", d.getNameDiary());
+    d.setNameDiary("rapp");
+    ASSERT_EQ("rapp", d.getNameDiary());
+    d.setNameDiary("!£$%&");
+    ASSERT_EQ("!£$%&", d.getNameDiary());
+    d.setNameDiary("");
+    ASSERT_EQ("", d.getNameDiary());
 }
 
 TEST_F(DiarySuite, TestEmptyness) {

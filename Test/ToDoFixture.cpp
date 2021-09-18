@@ -24,7 +24,6 @@ protected:
 
 TEST_F (ToDoSuite, TestConstructor) {
     ASSERT_EQ(false, to.isProgress());
-    //ASSERT_EQ(d1, to.getData()); //TODO errore
     ASSERT_EQ("spade laser", to.getTitle());
     ASSERT_EQ(2, to.getPriority());
 }

@@ -4,9 +4,27 @@
 #include <fstream>
 #include <vector>
 
+
 using namespace std;
 
+/*char* GetIniString(const char *IniFile, const char *section, const char *name, char *buffer, const char *def_val = 0){
+
+    int len = strlen(buffer);
+
+    if(IniFile) GetPrivateProfileString(section, name, def_val, buffer, len, IniFile);
+    else strcpy(buffer, def_val);
+
+    return buffer;
+} */
+
 int main() {
+    /*
+    LPCTSTR path = _T(".\\try");
+    TCHAR protocolChar[32];
+    int a = GetPrivateProfileString(_T("Connection"), _T("Protocol"), _T(""), protocolChar, 32, path);*/
+
+
+
 
 /////////lettura
     ifstream file(R"(C:\Users\uffa\CLionProjects\New_Progetto_laboratorio\Basket.txt)");
