@@ -72,3 +72,23 @@ void Activities::removeLastToDo() {
     }
     activities.remove(a);
 }
+
+void Activities::stampToDo() {
+    for (auto itr: activities)
+        std::cout << itr.getTitle() << " con stato: " << itr.isProgress() << std::endl;
+}
+
+void Activities::removeToDoByTitle(const std::string &op) {
+    for (auto itr:activities) {
+        if (op == itr.getTitle())
+            activities.remove(itr);
+    }
+}
+
+void Activities::changeProgress(const std::string &ui) {
+    for (auto itr:activities) {
+        if (ui == itr.getTitle())
+            itr.setProgress(true);
+    }
+}
+
