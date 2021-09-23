@@ -35,7 +35,7 @@ bool Activities::searchToDo(const ToDo &aDo) {
     return false;
 }
 
-void Activities::modToDo(const ToDo &aDo) {
+/*void Activities::modToDo(const ToDo &aDo) {
     std::string choice;
     std::string titleX;
     for (auto itr: activities) {
@@ -50,7 +50,7 @@ void Activities::modToDo(const ToDo &aDo) {
         }
     }
 
-}
+}*/
 
 bool Activities::operator==(const Activities &ac) {
     if (title == ac.title)
@@ -78,12 +78,12 @@ void Activities::stampToDo() {
         std::cout << itr.getTitle() << " con stato: " << itr.isProgress() << std::endl;
 }
 
-void Activities::removeToDoByTitle(const std::string &op) {
+/*void Activities::removeToDoByTitle(const std::string &op) {
     for (auto itr:activities) {
         if (op == itr.getTitle())
             activities.remove(itr);
     }
-}
+}*/
 
 void Activities::changeProgress(const std::string &ui) {
     for (auto itr:activities) {
