@@ -10,6 +10,7 @@ using namespace std;
 
 
 int main() {
+
 ////new version read
     fstream myFile;
     myFile.open(R"(C:\Users\uffa\CLionProjects\New_Progetto_laboratorio\readActivities.txt)", ios::in); //read
@@ -45,21 +46,26 @@ int main() {
     ToDo preparati(false, "prepararsi", 5, d4);
     ToDo dipingere(false, "dipingere", 1, d4);
 
-    Activities sport("sport");
+    Activities sport;
+    sport.setTitle("sport");
     sport.addToDo(allenareBicipiti);
     sport.addToDo(allenareGambe);
 
-    Activities faccende("faccende");
+    Activities faccende;
+    faccende.setTitle("faccende");
     faccende.addToDo(faiSpesa);
 
-    Activities relax("relax");
+    Activities relax;
+    relax.setTitle("relax");
     relax.addToDo(videogioca);
     relax.addToDo(dipingere);
 
-    Activities Basket(line); //app vale farepizza da lettura
+    Activities Basket;
+    Basket.setTitle(line);
     Basket.addToDo(palleggia);
 
-    Activities farePizza(lead); //appS vale Basket da lettura
+    Activities farePizza;
+    farePizza.setTitle("farePizza");
     farePizza.addToDo(faiPasta);
 
     Diary diariopersonale("il mio todo");
@@ -86,11 +92,9 @@ int main() {
     cout << "2) Mostra tutti i ToDo nella mia agenda" << endl;
     cout << "3) Completare un ToDo" << endl;
     cout << "4) Esci" << endl;
-
-
     char scelta;
-    do {
 
+    do {
         cout << "Inserisci una scelta[1-4]: ";
         cin >> scelta;
         cin.ignore(80, '\n');
@@ -107,13 +111,13 @@ int main() {
                 diariopersonale.stampAllToDo();
                 system("pause");
                 break;
-            case '3' : { //rimozione
+            case '3' : {
                 cout << "IL TUO DIARIO CONTIENE I SEGUENTI TODO: " << endl;
                 diariopersonale.stampAllToDo();
                 std::cout << "QUALE TODO' HAI COMPLETATO? " << std::endl;
                 string act;
-                std::cin >> act; // prendo il titolo del todo
-                diariopersonale.markProgressToDo(act); //non fa
+                std::cin >> act;
+                diariopersonale.markProgressToDo(act);
                 system("pause");
                 break;
             }
@@ -126,50 +130,6 @@ int main() {
         }
 
     } while (scelta != '4');
-
-
-    /*
-   std::cout << "vuoi modificare qualcosa? si o no?" << std::endl;
-   std::string a;
-   std::string b;
-   std::cin >> a;
-   if (a == "si") {
-       std::cout << "hai completato qualche ToDo?" << std::endl;
-       std::cin >> b;
-       if (b == "si") {
-           std::cout << "quale toDo hai completato?" << std::endl;
-           std::string acty;
-           std::cin >> acty;
-           if (acty == "curl bicipiti") {
-               allenareBicipiti.makeProgeress();
-               std::cout << "ottimo lavoro!" << std::endl;
-           }
-           if (acty == "compra uova e pesce") {
-               faiSpesa.makeProgeress();
-               std::cout << "ottimo lavoro!" << std::endl;
-           }
-           if (acty == "call of duty") {
-               videogioca.makeProgeress();
-               std::cout << "ottimo lavoro!" << std::endl;
-           }
-           if (acty == "palleggio") {
-               palleggia.makeProgeress();
-               std::cout << "ottimo lavoro!" << std::endl;
-           }
-           if (acty == "stendi pasta") {
-               faiPasta.makeProgeress();
-               std::cout << "ottimo lavoro!" << std::endl;
-           }
-           if (acty == "prepararsi") {
-               preparati.makeProgeress();
-               std::cout << "ottimo lavoro!" << std::endl;
-           }
-       }
-   } else {
-       std::cout << "hai completato qualche attività?" << std::endl;
-   }
-*/
-
 
     return 0;
 }

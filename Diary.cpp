@@ -50,11 +50,6 @@ void Diary::stampAllToDo() {
     }
 }
 
-/*
-void Diary::removeToDoSelected(const std::string &ws) {
- for (auto itr:diary)
-     itr.removeToDoByTitle(ws);
-}*/
 
 void Diary::markProgressToDo(const std::string &yt) {
     for (auto itr: diary) {

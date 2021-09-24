@@ -33,6 +33,7 @@ public:
 
     int countActivities(); //const + rename
 
+
 private:
     std::list<Activities> diary;
     std::string NameDiary;

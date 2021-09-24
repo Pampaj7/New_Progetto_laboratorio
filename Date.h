@@ -14,7 +14,6 @@ class Date {
 public:
 
     explicit Date( int dayX=1, Months monthsX=Months::January, int yearX=2000); //c0'tor
-    virtual ~Date();
 
     Months getMonth() const;
     int getDay() const;
@@ -26,7 +25,7 @@ public:
 
     void setMonth(Months month);
 
-    bool operator == (const Date& da);
+    bool operator == (const Date& da) const ;
 private:
 
     int day, year;

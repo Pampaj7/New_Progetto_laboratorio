@@ -28,10 +28,12 @@ TEST_F(DiarySuite, TestEmptyness) {
 }
 
 TEST_F(DiarySuite, TestNumberElements) {
-    Activities ac("sport");
+    Activities ac;
+    ac.setTitle("sport");
     d.addActivities(ac);
     ASSERT_EQ(d.countActivities(), 1);
-    Activities ad("jogging");
+    Activities ad;
+    ad.setTitle("jogging");
     d.addActivities(ad);
     ASSERT_EQ(d.countActivities(), 2);
     d.removeActivities(ac);
@@ -40,8 +42,9 @@ TEST_F(DiarySuite, TestNumberElements) {
     ASSERT_EQ(d.countActivities(), 0);
 }
 
-TEST_F(DiarySuite, TestStampActivities) {
-    Activities ar("eppp");
+TEST_F(DiarySuite, TestPrintActivities) {
+    Activities ar;
+    ar.setTitle("eppp");
     d.addActivities(ar);
     ASSERT_EQ("eppp\n", d.stampActivities());
 }

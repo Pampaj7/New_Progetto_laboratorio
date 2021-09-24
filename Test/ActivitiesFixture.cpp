@@ -33,7 +33,7 @@ TEST_F (ActivitiesSuite, Constructor) {
 
 
 TEST_F(ActivitiesSuite, TestNumberElements) {
-    ASSERT_EQ(2, activ.countToDo()); //ok
+    ASSERT_EQ(2, activ.countToDo());
     activ.removeLastToDo();
     ASSERT_EQ(1, activ.countToDo());
     activ.removeLastToDo();
@@ -44,6 +44,12 @@ TEST_F(ActivitiesSuite, TestNumberElements) {
     ASSERT_EQ(1, activ.countToDo());
     activ.removeToDo(xDo);
     ASSERT_EQ(0, activ.countToDo());
+
+    ToDo xDone(false, "test", 7, d0);
+    activ.addToDo(xDone);
+    ASSERT_EQ(1, activ.countToDo());
+    //ToDo testTaken = activ.searchToDoAndGiveIt("test");
+   // ASSERT_EQ(xDone, testTaken);
 } //+search resa todo + eccezione !!!SFGHTSHTSDHSHT
 
 TEST_F(ActivitiesSuite, TestSearchElements) {

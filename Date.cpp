@@ -39,10 +39,6 @@ Date::Date(int d, Months m, int y) : day(d), month(m), year(y) {
 }
 
 
-Date::~Date() {
-
-}
-
 void Date::setDay(int day) {
     Date::day = day;
 }
@@ -55,7 +51,7 @@ void Date::setMonth(Months month) {
     Date::month = month;
 }
 
-bool Date::operator==(const Date &da) {
+bool Date::operator==(const Date &da) const {
     if (day == da.getDay())
         if (year == da.getYear())
             if (month == da.getMonth())

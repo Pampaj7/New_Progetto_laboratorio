@@ -6,14 +6,13 @@
 #include "Activities.h"
 
 
-Activities::Activities(const std::string &title) : title(title) {}
 
 const std::string &Activities::getTitle() const {
     return title;
 }
 
-void Activities::setTitle(const std::string &title) {
-    Activities::title = title;
+void Activities::setTitle(const std::string &basicString) {
+    Activities::title = basicString;
 }
 
 void Activities::addToDo(const ToDo &aDo) {
@@ -31,23 +30,6 @@ bool Activities::searchToDo(const ToDo &aDo) const {
     }
     return false;
 }
-
-/*void Activities::modToDo(const ToDo &aDo) {
-    std::string choice;
-    std::string titleX;
-    for (auto itr: activities) {
-        if (itr.getTitle() == aDo.getTitle()) {
-            std::cout << "Vuoi cambiare il titolo dell'attività? si o no?" << std::endl;
-            std::cin >> choice;
-            if (choice == "si") {
-                std::cout << "Immetti il nuovo titolo" << std::endl;
-                std::cin >> titleX;
-                itr.setTitle(titleX);
-            }
-        }
-    }
-
-}*/
 
 bool Activities::operator==(const Activities &ac) const  {
     if (title == ac.title)
@@ -75,17 +57,17 @@ void Activities::printToDo() const {
         std::cout << itr.getTitle() << " con stato: " << itr.isProgress() << std::endl;
 }
 
-/*void Activities::removeToDoByTitle(const std::string &op) {
-    for (auto itr:activities) {
-        if (op == itr.getTitle())
-            activities.remove(itr);
-    }
-}*/
 
 void Activities::completedToDo(const std::string &ui) const  {
     for (auto itr:activities) {
         if (ui == itr.getTitle())
             itr.setProgress(true);
     }
+}
+
+ToDo Activities::searchToDoAndGiveIt(const std::string &rt) const {
+    for (auto itr:activities)
+        if (rt == itr.getTitle())
+            return itr;
 }
 
