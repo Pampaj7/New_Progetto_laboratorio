@@ -33,6 +33,7 @@ int Date::getMaxDays() {
             return 31;
     }
 }
+
 /*
 Date::Date(int d, Months m, int y) : day(d), month(m), year(y) {
    try {
@@ -49,12 +50,11 @@ void Date::setDay(int i) {
     try {
         if (i > getMaxDays())
             throw "Number not allowed!";
-        else
-            Date::day = i;
     }
-    catch (const char* messaggio) {
+    catch (const char *messaggio) {
         std::cerr << messaggio << std::endl;
     }
+    Date::day = i;
 }
 
 void Date::setYear(int year) {

@@ -13,8 +13,16 @@ protected:
         d1.setDay(30);
         d1.setMonth(Months::May);
         d1.setYear(1492);
-        ToDo doSom(false, "some", 4, d1);
-        ToDo aDo(false, "aa", 7, d1);
+        ToDo doSom;
+        doSom.setTitle("some");
+        doSom.setProgress(false);
+        doSom.setData(d1);
+        doSom.setPriority(4);
+        ToDo aDo;
+        aDo.setPriority(7);
+        aDo.setData(d1);
+        aDo.setProgress(false);
+        aDo.setTitle("aa");
         activ.addToDo(doSom);
         activ.addToDo(aDo);
         activ.setTitle("Madagascar");
@@ -45,30 +53,53 @@ TEST_F(ActivitiesSuite, TestNumberElements) {
     d0.setDay(20);
     d0.setMonth(Months::May);
     d0.setYear(1253);
-    ToDo xDo(false, "yy", 3, d0);
+    ToDo xDo;
+    xDo.setProgress(false);
+    xDo.setTitle("yy");
+    xDo.setData(d0);
+    xDo.setPriority(3);
     activ.addToDo(xDo);
     ASSERT_EQ(1, activ.ToDoCounter());
     activ.removeToDo(xDo);
     ASSERT_EQ(0, activ.ToDoCounter());
-
-    ToDo xDone(false, "test", 7, d0);
+    ToDo xDone;
+    xDone.setPriority(7);
+    xDone.setData(d0);
+    xDone.setTitle("test");
+    xDone.setProgress(false);
     activ.addToDo(xDone);
     ASSERT_EQ(1, activ.ToDoCounter());
-    //ToDo testTaken = activ.searchToDoAndGiveIt("test");
-   // ASSERT_EQ(xDone, testTaken);
-} //+search resa todo + eccezione !!!SFGHTSHTSDHSHT
+}
 
 TEST_F(ActivitiesSuite, TestSearchElements) {
     Date d0;
     d0.setDay(20);
     d0.setMonth(Months::May);
     d0.setYear(1253);
-    ToDo xDo(false, "yy", 3, d0);
+    ToDo xDo;
+    xDo.setProgress(false);
+    xDo.setTitle("yy");
+    xDo.setData(d0);
+    xDo.setPriority(3);
     activ.addToDo(xDo);
     ASSERT_EQ(true, activ.searchToDo(xDo));
     ASSERT_EQ(activ.ToDoCounter(), 3);
     activ.removeToDo(xDo);
     ASSERT_EQ(false, activ.searchToDo(xDo));
     ASSERT_EQ(activ.ToDoCounter(), 2);
+    ASSERT_EQ(activ.searchToDoByTitle("some").getPriority(), 4);
+    ASSERT_EQ(activ.searchToDoByTitle("some").getTitle(), "some");
+
+    ToDo lof;
+    lof.setProgress(false);
+    lof.setData(d0);
+    lof.setPriority(2);
+    lof.setTitle("we");
+    activ.addToDo(lof);
+    ASSERT_EQ(activ.searchToDoByTitle("we").getTitle(), "we");
+    ASSERT_EQ(activ.searchToDoByTitle("we").isProgress(), false);
+    ASSERT_EQ(activ.searchToDoByTitle("we").getPriority(), 2);
+    ASSERT_EQ(activ.searchToDoByTitle("we").getData(), d0);
+
 }
 

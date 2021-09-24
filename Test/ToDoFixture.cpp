@@ -6,7 +6,7 @@
 #include "gtest/gtest.h"
 #include "../ToDo.h"
 
-class ToDoSuite : public::testing::Test {
+class ToDoSuite : public ::testing::Test {
 protected:
     virtual void SetUp() {
 
@@ -18,6 +18,7 @@ protected:
         d1.setMonth(Months::May);
         d1.setYear(2341);
     }
+
     ToDo to;
     Date d1;
 };

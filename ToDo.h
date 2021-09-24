@@ -12,20 +12,26 @@
 class ToDo {
 public:
 
-    ToDo(bool progress, const std::string &activity, int priority, const Date &data); //rimuov
-    ToDo();
-
 
     bool isProgress() const;
+
     void setProgress(bool progress);
+
     const std::string &getTitle() const;
+
     void setTitle(const std::string &activity);
+
     int getPriority() const;
+
     void setPriority(int priority);
+
     const Date &getData() const;
+
     void setData(const Date &data);
 
-    bool operator == (const ToDo& todo) const;
+    bool operator==(const ToDo &todo) const;
+
+
     void makeProgress();
 
 

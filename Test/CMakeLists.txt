@@ -9,4 +9,4 @@ include(${wxWidgets_USE_FILE})
 
 set(SOURCE_FILES runAllTests.cpp ActivitiesFixture.cpp DateFixture.cpp ToDoFixture.cpp DiaryFixture.cpp)
 add_executable(RunEngagementsTests ${SOURCE_FILES})
-target_link_libraries(RunEngagementsTests gtest gtest_main core  ${wxWidgets_LIBRARIES})
+target_link_libraries(RunEngagementsTests gtest gtest_main core ${wxWidgets_LIBRARIES})

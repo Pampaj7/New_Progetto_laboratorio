@@ -4,11 +4,12 @@
 #include "gtest/gtest.h"
 #include "../Diary.h"
 
-class DiarySuite : public::testing::Test {
+class DiarySuite : public ::testing::Test {
 protected:
     virtual void SetUp() {
         d.setNameDiary("Pablo");
     }
+
     Diary d;
 };
 

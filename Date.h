@@ -4,6 +4,7 @@
 
 #ifndef NEW_PROGETTO_LABORATORIO_DATE_H
 #define NEW_PROGETTO_LABORATORIO_DATE_H
+
 #include <ostream>
 
 enum class Months {
@@ -12,10 +13,12 @@ enum class Months {
 
 class Date {
 public:
-   // explicit Date( int dayX=1, Months monthsX=Months::January, int yearX=2000);
+    // explicit Date( int dayX=1, Months monthsX=Months::January, int yearX=2000);
 
     Months getMonth() const;
+
     int getDay() const;
+
     int getYear() const;
 
 
@@ -25,11 +28,13 @@ public:
 
     void setMonth(Months month);
 
-    bool operator == (const Date& da) const ;
+    bool operator==(const Date &da) const;
+
 private:
 
     int day, year;
     Months month;
+
     int getMaxDays();
 };
 

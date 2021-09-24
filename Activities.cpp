@@ -6,7 +6,6 @@
 #include "Activities.h"
 
 
-
 const std::string &Activities::getTitle() const {
     return title;
 }
@@ -31,22 +30,22 @@ bool Activities::searchToDo(const ToDo &aDo) const {
     return false;
 }
 
-bool Activities::operator==(const Activities &ac) const  {
+bool Activities::operator==(const Activities &ac) const {
     if (title == ac.title)
         return true;
     return false;
 }
 
 int Activities::ToDoCounter() const {
-    int i=0;
-    for (auto itr:activities)
+    int i = 0;
+    for (auto itr: activities)
         i++;
     return i;
 }
 
 void Activities::removeLastToDo() {
     ToDo a;
-    for (auto itr:activities) {
+    for (auto itr: activities) {
         a = itr;
     }
     activities.remove(a);
@@ -58,16 +57,22 @@ void Activities::printToDo() const {
 }
 
 
-void Activities::completedToDo(const std::string &ui) const  {
-    for (auto itr:activities) {
+void Activities::completedToDo(const std::string &ui) const {
+    for (auto itr: activities) {
         if (ui == itr.getTitle())
             itr.setProgress(true);
     }
 }
 
-ToDo Activities::searchToDoAndGiveIt(const std::string &rt) const {
-    for (auto itr:activities)
-        if (rt == itr.getTitle())
-            return itr;
+ToDo Activities::searchToDoByTitle(const std::string &rt) {
+    ToDo rte;
+    for (auto itr: activities)
+        if (rt == itr.getTitle()) {
+            rte.setTitle(rt);
+            rte.setPriority(itr.getPriority());
+            rte.setData(itr.getData());
+            rte.setProgress(itr.isProgress());
+            return rte;
+        }
 }
 

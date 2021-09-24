@@ -49,14 +49,53 @@ int main() {
     d4.setMonth(Months::March);
     d4.setYear(3200);
 
-    ToDo allenareBicipiti(false, "curl bicipiti", 10, d1);
-    ToDo allenareGambe(false, "gambe", 2, d1);
-    ToDo faiSpesa(false, "compra uova e pesce", 2, d1);
-    ToDo videogioca(false, "call of duty", 7, d2);
-    ToDo palleggia(false, "palleggio", 9, d2);
-    ToDo faiPasta(false, "stendi pasta", 7, d3);
-    ToDo preparati(false, "prepararsi", 5, d4);
-    ToDo dipingere(false, "dipingere", 1, d4);
+    ToDo allenareBicipiti;
+    allenareBicipiti.setProgress(false);
+    allenareBicipiti.setTitle("curl bicipiti");
+    allenareBicipiti.setData(d1);
+    allenareBicipiti.setPriority(10);
+
+    ToDo allenareGambe;
+    allenareGambe.setPriority(2);
+    allenareGambe.setData(d1);
+    allenareGambe.setPriority(2);
+    allenareGambe.setProgress(false);
+
+    ToDo faiSpesa;
+    faiSpesa.setPriority(2);
+    faiSpesa.setProgress(false);
+    faiSpesa.setData(d1);
+    faiSpesa.setTitle("compra uova e pesce");
+
+    ToDo videogioca;
+    videogioca.setPriority(7);
+    videogioca.setData(d2);
+    videogioca.setProgress(false);
+    videogioca.setTitle("call of duty");
+
+    ToDo palleggia;
+    palleggia.setPriority(9);
+    palleggia.setProgress(false);
+    palleggia.setData(d2);
+    palleggia.setTitle("palleggio");
+
+    ToDo faiPasta;
+    faiPasta.setPriority(7);
+    faiPasta.setData(d3);
+    faiPasta.setProgress(false);
+    faiPasta.setTitle("stendi pasta");
+
+    ToDo preparati;
+    preparati.setPriority(5);
+    preparati.setProgress(false);
+    preparati.setData(d4);
+    preparati.setTitle("preparati");
+
+    ToDo dipingere;
+    dipingere.setPriority(1);
+    dipingere.setData(d4);
+    dipingere.setProgress(false);
+    dipingere.setTitle("dipingere");
 
     Activities sport;
     sport.setTitle("sport");

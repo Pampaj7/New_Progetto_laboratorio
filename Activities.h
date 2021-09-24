@@ -13,20 +13,27 @@ class Activities {
 public:
 
     const std::string &getTitle() const;
+
     void setTitle(const std::string &basicString);
 
     void addToDo(const ToDo &aDo);
-    void removeToDo(const ToDo &aDo);
-    void removeLastToDo();
-    bool searchToDo(const ToDo &aDo) const ;
 
-    ToDo searchToDoAndGiveIt(const std::string &rt) const; //TODO FIX IT
+    void removeToDo(const ToDo &aDo);
+
+    void removeLastToDo();
+
+    bool searchToDo(const ToDo &aDo) const;
+
+    ToDo searchToDoByTitle(const std::string &rt);
 
     bool operator==(const Activities &ac) const;
 
-    int ToDoCounter() const ;
+
+    int ToDoCounter() const;
+
     void printToDo() const;
-    void completedToDo(const std::string &ui) const ;
+
+    void completedToDo(const std::string &ui) const;
 
 
 private:

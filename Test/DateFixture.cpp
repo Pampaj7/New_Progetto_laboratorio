@@ -7,13 +7,14 @@
 #include "gtest/gtest.h"
 #include "../Date.h"
 
-class DateSuite : public ::testing::Test{
+class DateSuite : public ::testing::Test {
 protected:
     virtual void SetUp() {
         dd.setDay(1);
         dd.setMonth(Months::June);
         dd.setYear(1948);
     }
+
     Date dd;
 };
 
@@ -29,6 +30,5 @@ TEST_F(DateSuite, ConstructorTest) {
     ASSERT_EQ(2019, dd.getYear());
     dd.setDay(2);
     ASSERT_EQ(dd.getDay(), 2);
-
 }
 

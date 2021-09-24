@@ -37,12 +37,6 @@ void ToDo::setData(const Date &data) {
 }
 
 
-
-ToDo::ToDo(bool progress, const std::string &activity, int priority, const Date &data) : progress(progress),
-                                                                                         Title(activity),
-                                                                                         priority(priority),
-                                                                                         data(data) {}
-
 bool ToDo::operator==(const ToDo &todo) const {
     if (todo.Title == Title)
         if (todo.progress == progress)
@@ -55,6 +49,3 @@ void ToDo::makeProgress() {
     progress = true;
 }
 
-ToDo::ToDo() {
-
-}
