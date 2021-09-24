@@ -12,14 +12,14 @@ enum class Months {
 
 class Date {
 public:
-
-    explicit Date( int dayX=1, Months monthsX=Months::January, int yearX=2000); //c0'tor
+   // explicit Date( int dayX=1, Months monthsX=Months::January, int yearX=2000);
 
     Months getMonth() const;
     int getDay() const;
     int getYear() const;
 
-    void setDay(int day);
+
+    void setDay(int i);
 
     void setYear(int year);
 

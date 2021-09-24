@@ -32,10 +32,22 @@ int main() {
 
 ////////////// dati base
 
-    Date d1(5, Months::February, 2800);
-    Date d2(6, Months::September, 1200);
-    Date d3(12, Months::March, 3200);
-    Date d4(21, Months::March, 3200);
+    Date d1;
+    d1.setDay(5);
+    d1.setMonth(Months::February);
+    d1.setYear(2800);
+    Date d2;
+    d2.setDay(6);
+    d2.setMonth(Months::September);
+    d2.setYear(1200);
+    Date d3;
+    d3.setDay(12);
+    d3.setMonth(Months::March);
+    d3.setYear(3200);
+    Date d4;
+    d4.setDay(23);
+    d4.setMonth(Months::March);
+    d4.setYear(3200);
 
     ToDo allenareBicipiti(false, "curl bicipiti", 10, d1);
     ToDo allenareGambe(false, "gambe", 2, d1);

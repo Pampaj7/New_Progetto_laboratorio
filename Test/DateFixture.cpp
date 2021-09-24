@@ -27,5 +27,8 @@ TEST_F(DateSuite, ConstructorTest) {
     ASSERT_EQ(2, dd.getDay());
     ASSERT_EQ(Months::August, dd.getMonth());
     ASSERT_EQ(2019, dd.getYear());
+    dd.setDay(2);
+    ASSERT_EQ(dd.getDay(), 2);
+
 }
- // set impox TODO se in un set mettiamo una data non ammessa generare eccezione
+

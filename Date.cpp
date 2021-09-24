@@ -4,6 +4,7 @@
 
 
 #include <ostream>
+#include <iostream>
 #include "Date.h"
 
 
@@ -32,15 +33,28 @@ int Date::getMaxDays() {
             return 31;
     }
 }
-
+/*
 Date::Date(int d, Months m, int y) : day(d), month(m), year(y) {
-    if (day > getMaxDays())
-        day = 1;
-}
+   try {
+       if (day > getMaxDays())
+           throw "Number not allowed";
+   }
+   catch (const char* messaggio) {
+       std::cerr << messaggio << std::endl;
+   }
 
+}*/
 
-void Date::setDay(int day) {
-    Date::day = day;
+void Date::setDay(int i) {
+    try {
+        if (i > getMaxDays())
+            throw "Number not allowed!";
+        else
+            Date::day = i;
+    }
+    catch (const char* messaggio) {
+        std::cerr << messaggio << std::endl;
+    }
 }
 
 void Date::setYear(int year) {

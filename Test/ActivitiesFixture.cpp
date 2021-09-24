@@ -9,7 +9,10 @@ class ActivitiesSuite : public ::testing::Test {
 
 protected:
     virtual void SetUp() {
-        Date d1(30, Months::May, 1492);
+        Date d1;
+        d1.setDay(30);
+        d1.setMonth(Months::May);
+        d1.setYear(1492);
         ToDo doSom(false, "some", 4, d1);
         ToDo aDo(false, "aa", 7, d1);
         activ.addToDo(doSom);
@@ -38,7 +41,10 @@ TEST_F(ActivitiesSuite, TestNumberElements) {
     ASSERT_EQ(1, activ.countToDo());
     activ.removeLastToDo();
     ASSERT_EQ(0, activ.countToDo());
-    Date d0(20, Months::May, 1253);
+    Date d0;
+    d0.setDay(20);
+    d0.setMonth(Months::May);
+    d0.setYear(1253);
     ToDo xDo(false, "yy", 3, d0);
     activ.addToDo(xDo);
     ASSERT_EQ(1, activ.countToDo());
@@ -53,7 +59,10 @@ TEST_F(ActivitiesSuite, TestNumberElements) {
 } //+search resa todo + eccezione !!!SFGHTSHTSDHSHT
 
 TEST_F(ActivitiesSuite, TestSearchElements) {
-    Date d0(20, Months::May, 1253);
+    Date d0;
+    d0.setDay(20);
+    d0.setMonth(Months::May);
+    d0.setYear(1253);
     ToDo xDo(false, "yy", 3, d0);
     activ.addToDo(xDo);
     ASSERT_EQ(true, activ.searchToDo(xDo));
