@@ -20,11 +20,11 @@ public:
     void removeLastToDo();
     bool searchToDo(const ToDo &aDo) const ;
 
-    ToDo searchToDoAndGiveIt(const std::string &rt) const;
+    ToDo searchToDoAndGiveIt(const std::string &rt) const; //TODO FIX IT
 
     bool operator==(const Activities &ac) const;
 
-    int countToDo() const ;
+    int ToDoCounter() const ;
     void printToDo() const;
     void completedToDo(const std::string &ui) const ;
 

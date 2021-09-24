@@ -12,26 +12,22 @@
 class Diary {
 public:
 
-    explicit Diary(const std::string &nameDiary); //via
 
+    void addActivities(const Activities &ac);
 
-    Diary();
+    void removeActivities(const Activities &ac);
 
-    void addActivities(const Activities &ac); //V
-    void removeActivities(const Activities &ac);//V
-    // void removeToDoSelected(const std::string &ws);
+    std::string printActivities() const;
 
-    std::string stampActivities();
+    void printAllToDo() const;
 
-    void stampAllToDo(); //rename
-
-    void markProgressToDo(std::string const &yt);
+    void completedToDo(std::string const &yt) const;
 
     const std::string &getNameDiary() const;
 
     void setNameDiary(const std::string &nameDiary);
 
-    int countActivities(); //const + rename
+    int activitiesCounter() const;
 
 
 private:

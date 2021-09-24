@@ -24,27 +24,27 @@ TEST_F (DiarySuite, TestConstructor) {
 }
 
 TEST_F(DiarySuite, TestEmptyness) {
-    ASSERT_EQ(d.countActivities(), 0);
+    ASSERT_EQ(d.activitiesCounter(), 0);
 }
 
 TEST_F(DiarySuite, TestNumberElements) {
     Activities ac;
     ac.setTitle("sport");
     d.addActivities(ac);
-    ASSERT_EQ(d.countActivities(), 1);
+    ASSERT_EQ(d.activitiesCounter(), 1);
     Activities ad;
     ad.setTitle("jogging");
     d.addActivities(ad);
-    ASSERT_EQ(d.countActivities(), 2);
+    ASSERT_EQ(d.activitiesCounter(), 2);
     d.removeActivities(ac);
-    ASSERT_EQ(d.countActivities(), 1);
+    ASSERT_EQ(d.activitiesCounter(), 1);
     d.removeActivities(ad);
-    ASSERT_EQ(d.countActivities(), 0);
+    ASSERT_EQ(d.activitiesCounter(), 0);
 }
 
 TEST_F(DiarySuite, TestPrintActivities) {
     Activities ar;
     ar.setTitle("eppp");
     d.addActivities(ar);
-    ASSERT_EQ("eppp\n", d.stampActivities());
+    ASSERT_EQ("eppp\n", d.printActivities());
 }

@@ -80,7 +80,8 @@ int main() {
     farePizza.setTitle("farePizza");
     farePizza.addToDo(faiPasta);
 
-    Diary diariopersonale("il mio todo");
+    Diary diariopersonale;
+    diariopersonale.setNameDiary("il mio todo");
 
     diariopersonale.addActivities(relax);
     diariopersonale.addActivities(sport);
@@ -93,7 +94,7 @@ int main() {
     ofstream fileX;
     fileX.open(R"(C:\Users\uffa\CLionProjects\New_Progetto_laboratorio\riassuntoAttivita.txt)");
     if (fileX.is_open()) {
-        fileX << diariopersonale.stampActivities();
+        fileX << diariopersonale.printActivities();
         fileX.close();
     }
 
@@ -113,23 +114,23 @@ int main() {
         switch (scelta) {
             case '1' : {
                 std::cout << "IL TUO DIARIO HA I SEGUENTI IMPEGNI: " << std::endl;
-                std::string ac = diariopersonale.stampActivities();
+                std::string ac = diariopersonale.printActivities();
                 std::cout << ac << std::endl;
                 system("pause");
                 break;
             }
             case '2' :
                 cout << "IL TUO DIARIO CONTIENE I SEGUENTI TODO: " << endl;
-                diariopersonale.stampAllToDo();
+                diariopersonale.printAllToDo();
                 system("pause");
                 break;
             case '3' : {
                 cout << "IL TUO DIARIO CONTIENE I SEGUENTI TODO: " << endl;
-                diariopersonale.stampAllToDo();
+                diariopersonale.printAllToDo();
                 std::cout << "QUALE TODO' HAI COMPLETATO? " << std::endl;
                 string act;
                 std::cin >> act;
-                diariopersonale.markProgressToDo(act);
+                diariopersonale.completedToDo(act);
                 system("pause");
                 break;
             }

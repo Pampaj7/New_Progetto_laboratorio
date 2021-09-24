@@ -37,7 +37,7 @@ bool Activities::operator==(const Activities &ac) const  {
     return false;
 }
 
-int Activities::countToDo() const {
+int Activities::ToDoCounter() const {
     int i=0;
     for (auto itr:activities)
         i++;

@@ -29,6 +29,6 @@ TEST_F (ToDoSuite, TestConstructor) {
 }
 
 TEST_F(ToDoSuite, TestProgress) {
-    to.makeProgeress();
+    to.makeProgress();
     ASSERT_EQ(true, to.isProgress());
 }

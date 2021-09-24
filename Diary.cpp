@@ -5,9 +5,6 @@
 #include <iostream>
 #include "Diary.h"
 
-Diary::Diary(const std::string &nameDiary) : NameDiary(nameDiary) {}
-
-
 void Diary::addActivities(const Activities &ac) {
     diary.push_back(ac);
 }
@@ -16,7 +13,7 @@ void Diary::removeActivities(const Activities &ac) {
     diary.remove(ac);
 }
 
-std::string Diary::stampActivities() {
+std::string Diary::printActivities() const {
     std::string act;
     for (auto itr: diary)
         act += itr.getTitle() + "\n";
@@ -28,21 +25,17 @@ const std::string &Diary::getNameDiary() const {
 }
 
 void Diary::setNameDiary(const std::string &nameDiary) {
-    NameDiary = nameDiary; //XXX ecc
+    NameDiary = nameDiary;
 }
 
-Diary::Diary() {
-
-}
-
-int Diary::countActivities() {
+int Diary::activitiesCounter() const {
     int i = 0;
     for (auto itr: diary)
         i++;
     return i;
 }
 
-void Diary::stampAllToDo() {
+void Diary::printAllToDo() const {
     for (auto itr: diary) {
         std::cout << "Per l'attivita' : " << itr.getTitle() << std::endl << "abbiamo i seguenti ToDo : " << std::endl;
         itr.printToDo();
@@ -51,7 +44,7 @@ void Diary::stampAllToDo() {
 }
 
 
-void Diary::markProgressToDo(const std::string &yt) {
+void Diary::completedToDo(const std::string &yt) const {
     for (auto itr: diary) {
         itr.completedToDo(yt);
     }

@@ -36,24 +36,24 @@ TEST_F (ActivitiesSuite, Constructor) {
 
 
 TEST_F(ActivitiesSuite, TestNumberElements) {
-    ASSERT_EQ(2, activ.countToDo());
+    ASSERT_EQ(2, activ.ToDoCounter());
     activ.removeLastToDo();
-    ASSERT_EQ(1, activ.countToDo());
+    ASSERT_EQ(1, activ.ToDoCounter());
     activ.removeLastToDo();
-    ASSERT_EQ(0, activ.countToDo());
+    ASSERT_EQ(0, activ.ToDoCounter());
     Date d0;
     d0.setDay(20);
     d0.setMonth(Months::May);
     d0.setYear(1253);
     ToDo xDo(false, "yy", 3, d0);
     activ.addToDo(xDo);
-    ASSERT_EQ(1, activ.countToDo());
+    ASSERT_EQ(1, activ.ToDoCounter());
     activ.removeToDo(xDo);
-    ASSERT_EQ(0, activ.countToDo());
+    ASSERT_EQ(0, activ.ToDoCounter());
 
     ToDo xDone(false, "test", 7, d0);
     activ.addToDo(xDone);
-    ASSERT_EQ(1, activ.countToDo());
+    ASSERT_EQ(1, activ.ToDoCounter());
     //ToDo testTaken = activ.searchToDoAndGiveIt("test");
    // ASSERT_EQ(xDone, testTaken);
 } //+search resa todo + eccezione !!!SFGHTSHTSDHSHT
@@ -66,9 +66,9 @@ TEST_F(ActivitiesSuite, TestSearchElements) {
     ToDo xDo(false, "yy", 3, d0);
     activ.addToDo(xDo);
     ASSERT_EQ(true, activ.searchToDo(xDo));
-    ASSERT_EQ(activ.countToDo(), 3);
+    ASSERT_EQ(activ.ToDoCounter(), 3);
     activ.removeToDo(xDo);
     ASSERT_EQ(false, activ.searchToDo(xDo));
-    ASSERT_EQ(activ.countToDo(), 2);
+    ASSERT_EQ(activ.ToDoCounter(), 2);
 }
 

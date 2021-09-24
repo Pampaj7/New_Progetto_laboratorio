@@ -25,8 +25,8 @@ public:
     const Date &getData() const;
     void setData(const Date &data);
 
-    bool operator == (const ToDo& todo); //const
-    void makeProgeress(); //occ
+    bool operator == (const ToDo& todo) const;
+    void makeProgress();
 
 
 private:
