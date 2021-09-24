@@ -87,9 +87,8 @@ TEST_F(ActivitiesSuite, TestSearchElements) {
     activ.removeToDo(xDo);
     ASSERT_EQ(false, activ.searchToDo(xDo));
     ASSERT_EQ(activ.ToDoCounter(), 2);
-    ASSERT_EQ(activ.searchToDoByTitle("some").getPriority(), 4);
-    ASSERT_EQ(activ.searchToDoByTitle("some").getTitle(), "some");
 
+    ////// Aggiunto test nuovo search
     ToDo lof;
     lof.setProgress(false);
     lof.setData(d0);

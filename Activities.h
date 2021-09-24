@@ -24,10 +24,9 @@ public:
 
     bool searchToDo(const ToDo &aDo) const;
 
-    ToDo searchToDoByTitle(const std::string &rt);
+    ToDo searchToDoByTitle(const std::string &rt) const;
 
     bool operator==(const Activities &ac) const;
-
 
     int ToDoCounter() const;
 

@@ -20,7 +20,7 @@ Months Date::getMonth() const {
     return month;
 }
 
-int Date::getMaxDays() {
+int Date::getMaxDays() const {
     switch (month) {
         case Months::September:
         case Months::April:

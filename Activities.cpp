@@ -64,7 +64,7 @@ void Activities::completedToDo(const std::string &ui) const {
     }
 }
 
-ToDo Activities::searchToDoByTitle(const std::string &rt) {
+ToDo Activities::searchToDoByTitle(const std::string &rt) const  {
     ToDo rte;
     for (auto itr: activities)
         if (rt == itr.getTitle()) {

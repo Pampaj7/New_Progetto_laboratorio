@@ -30,12 +30,14 @@ public:
 
     bool operator==(const Date &da) const;
 
+    int getMaxDays() const ;
+
 private:
 
     int day, year;
     Months month;
 
-    int getMaxDays();
+
 };
 
 

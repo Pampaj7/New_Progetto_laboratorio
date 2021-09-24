@@ -31,7 +31,6 @@ public:
 
     bool operator==(const ToDo &todo) const;
 
-
     void makeProgress();
 
 
