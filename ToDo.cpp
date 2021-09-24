@@ -36,9 +36,7 @@ void ToDo::setData(const Date &data) {
     ToDo::data = data;
 }
 
-ToDo::~ToDo() {
 
-}
 
 ToDo::ToDo(bool progress, const std::string &activity, int priority, const Date &data) : progress(progress),
                                                                                          Title(activity),

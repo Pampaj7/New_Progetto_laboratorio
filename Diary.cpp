@@ -28,7 +28,7 @@ const std::string &Diary::getNameDiary() const {
 }
 
 void Diary::setNameDiary(const std::string &nameDiary) {
-    NameDiary = nameDiary;
+    NameDiary = nameDiary; //XXX ecc
 }
 
 Diary::Diary() {
@@ -45,7 +45,7 @@ int Diary::countActivities() {
 void Diary::stampAllToDo() {
     for (auto itr: diary) {
         std::cout << "Per l'attivita' : " << itr.getTitle() << std::endl << "abbiamo i seguenti ToDo : " << std::endl;
-        itr.stampToDo();
+        itr.printToDo();
         std::cout << std::endl;
     }
 }
@@ -58,7 +58,7 @@ void Diary::removeToDoSelected(const std::string &ws) {
 
 void Diary::markProgressToDo(const std::string &yt) {
     for (auto itr: diary) {
-        itr.changeProgress(yt);
+        itr.completedToDo(yt);
     }
 }
 

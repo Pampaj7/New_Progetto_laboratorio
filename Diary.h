@@ -12,9 +12,8 @@
 class Diary {
 public:
 
-    explicit Diary(const std::string &nameDiary);
+    explicit Diary(const std::string &nameDiary); //via
 
-    virtual ~Diary() = default;
 
     Diary();
 
@@ -24,7 +23,7 @@ public:
 
     std::string stampActivities();
 
-    void stampAllToDo();
+    void stampAllToDo(); //rename
 
     void markProgressToDo(std::string const &yt);
 
@@ -32,7 +31,7 @@ public:
 
     void setNameDiary(const std::string &nameDiary);
 
-    int countActivities();
+    int countActivities(); //const + rename
 
 private:
     std::list<Activities> diary;

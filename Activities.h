@@ -14,28 +14,27 @@ public:
 
     explicit Activities(const std::string &title = "");
 
-    virtual ~Activities();
 
     const std::string &getTitle() const;
 
     void setTitle(const std::string &title);
 
-    void addToDo(const ToDo &aDo);// eccolo
+    void addToDo(const ToDo &aDo);
     void removeToDo(const ToDo &aDo);
 
     //void removeToDoByTitle(const std::string& op);
     void removeLastToDo();
 
-    bool searchToDo(const ToDo &aDo);
+    bool searchToDo(const ToDo &aDo) const ; //+ resa todo occ + test const
 
-    //void modToDo(const ToDo& aDo);
-    bool operator==(const Activities &ac);
+    //void modToDo(const T& aDo);
+    bool operator==(const Activities &ac) const;
 
-    int countToDo();
+    int countToDo() const ;
 
-    void stampToDo();
+    void printToDo() const;
 
-    void changeProgress(const std::string &ui);
+    void completedToDo(const std::string &ui) const ;
 
 
 private:

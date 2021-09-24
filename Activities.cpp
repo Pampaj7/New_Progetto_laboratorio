@@ -5,9 +5,6 @@
 #include <iostream>
 #include "Activities.h"
 
-Activities::~Activities() {
-
-}
 
 Activities::Activities(const std::string &title) : title(title) {}
 
@@ -27,7 +24,7 @@ void Activities::removeToDo(const ToDo &aDo) {
     activities.remove(aDo);
 }
 
-bool Activities::searchToDo(const ToDo &aDo) {
+bool Activities::searchToDo(const ToDo &aDo) const {
     for (auto itr: activities) {
         if (itr.getTitle() == aDo.getTitle())
             return true;
@@ -52,13 +49,13 @@ bool Activities::searchToDo(const ToDo &aDo) {
 
 }*/
 
-bool Activities::operator==(const Activities &ac) {
+bool Activities::operator==(const Activities &ac) const  {
     if (title == ac.title)
         return true;
     return false;
 }
 
-int Activities::countToDo() {
+int Activities::countToDo() const {
     int i=0;
     for (auto itr:activities)
         i++;
@@ -73,7 +70,7 @@ void Activities::removeLastToDo() {
     activities.remove(a);
 }
 
-void Activities::stampToDo() {
+void Activities::printToDo() const {
     for (auto itr: activities)
         std::cout << itr.getTitle() << " con stato: " << itr.isProgress() << std::endl;
 }
@@ -85,7 +82,7 @@ void Activities::stampToDo() {
     }
 }*/
 
-void Activities::changeProgress(const std::string &ui) {
+void Activities::completedToDo(const std::string &ui) const  {
     for (auto itr:activities) {
         if (ui == itr.getTitle())
             itr.setProgress(true);

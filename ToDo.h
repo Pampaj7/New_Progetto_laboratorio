@@ -12,9 +12,9 @@
 class ToDo {
 public:
 
-    ToDo(bool progress, const std::string &activity, int priority, const Date &data);
+    ToDo(bool progress, const std::string &activity, int priority, const Date &data); //rimuov
     ToDo();
-    virtual ~ToDo();
+
 
     bool isProgress() const;
     void setProgress(bool progress);
@@ -25,8 +25,8 @@ public:
     const Date &getData() const;
     void setData(const Date &data);
 
-    bool operator == (const ToDo& todo);
-    void makeProgeress();
+    bool operator == (const ToDo& todo); //const
+    void makeProgeress(); //occ
 
 
 private:

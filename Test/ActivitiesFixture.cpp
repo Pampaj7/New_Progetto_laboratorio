@@ -44,7 +44,7 @@ TEST_F(ActivitiesSuite, TestNumberElements) {
     ASSERT_EQ(1, activ.countToDo());
     activ.removeToDo(xDo);
     ASSERT_EQ(0, activ.countToDo());
-}
+} //+search resa todo + eccezione !!!SFGHTSHTSDHSHT
 
 TEST_F(ActivitiesSuite, TestSearchElements) {
     Date d0(20, Months::May, 1253);

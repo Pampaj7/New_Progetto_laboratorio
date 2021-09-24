@@ -10,8 +10,8 @@ using namespace std;
 
 
 int main() {
-
-    fstream myFile; ////new version read
+////new version read
+    fstream myFile;
     myFile.open(R"(C:\Users\uffa\CLionProjects\New_Progetto_laboratorio\readActivities.txt)", ios::in); //read
 
     string line;
