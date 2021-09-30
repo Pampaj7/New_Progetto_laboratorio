@@ -30,5 +30,14 @@ TEST_F(DateSuite, ConstructorTest) {
     ASSERT_EQ(2019, dd.getYear());
     dd.setDay(2);
     ASSERT_EQ(dd.getDay(), 2);
+
+    Date d6;
+    d6.setDay(31);
+    d6.setMonth(Months::December);
+    d6.setYear(1999);
+
+    //d6.setMonth(Months::April);
+
+
 }
 

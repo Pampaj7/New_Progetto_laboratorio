@@ -21,7 +21,6 @@ public:
 
     int getYear() const;
 
-
     void setDay(int i);
 
     void setYear(int year);

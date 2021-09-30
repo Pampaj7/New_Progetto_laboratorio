@@ -44,11 +44,7 @@ int Activities::ToDoCounter() const {
 }
 
 void Activities::removeLastToDo() {
-    ToDo a;
-    for (auto itr: activities) {
-        a = itr;
-    }
-    activities.remove(a);
+    activities.pop_back();
 }
 
 void Activities::printToDo() const {
@@ -64,7 +60,7 @@ void Activities::completedToDo(const std::string &ui) const {
     }
 }
 
-ToDo Activities::searchToDoByTitle(const std::string &rt) const  {
+ToDo Activities::containsToDoByTitle(const std::string &rt) const  {
     ToDo rte;
     for (auto itr: activities)
         if (rt == itr.getTitle()) {

@@ -20,11 +20,11 @@ public:
 
     void removeToDo(const ToDo &aDo);
 
-    void removeLastToDo();
+    void removeLastToDo(); //TODO
 
     bool searchToDo(const ToDo &aDo) const;
 
-    ToDo searchToDoByTitle(const std::string &rt) const;
+    ToDo containsToDoByTitle(const std::string &rt) const;
 
     bool operator==(const Activities &ac) const;
 

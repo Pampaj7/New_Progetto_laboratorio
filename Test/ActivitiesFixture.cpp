@@ -95,10 +95,10 @@ TEST_F(ActivitiesSuite, TestSearchElements) {
     lof.setPriority(2);
     lof.setTitle("we");
     activ.addToDo(lof);
-    ASSERT_EQ(activ.searchToDoByTitle("we").getTitle(), "we");
-    ASSERT_EQ(activ.searchToDoByTitle("we").isProgress(), false);
-    ASSERT_EQ(activ.searchToDoByTitle("we").getPriority(), 2);
-    ASSERT_EQ(activ.searchToDoByTitle("we").getData(), d0);
+    ASSERT_EQ(activ.containsToDoByTitle("we").getTitle(), "we");
+    ASSERT_EQ(activ.containsToDoByTitle("we").isProgress(), false);
+    ASSERT_EQ(activ.containsToDoByTitle("we").getPriority(), 2);
+    ASSERT_EQ(activ.containsToDoByTitle("we").getData(), d0);
 
 }
 

@@ -50,7 +50,7 @@ void Date::setDay(int i) {
     try {
         if (i > getMaxDays())
             throw "Number not allowed!";
-    }
+    } //TODO
     catch (const char *messaggio) {
         std::cerr << messaggio << std::endl;
     }
