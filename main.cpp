@@ -31,7 +31,6 @@ int main() {
     }
 
 ////////////// dati base
-
     Date d1;
     d1.setDay(5);
     d1.setMonth(Months::February);
@@ -43,11 +42,11 @@ int main() {
     Date d3;
     d3.setDay(12);
     d3.setMonth(Months::March);
-    d3.setYear(3200);
+    d3.setYear(2200);
     Date d4;
     d4.setDay(23);
     d4.setMonth(Months::March);
-    d4.setYear(3200);
+    d4.setYear(2200);
 
     ToDo allenareBicipiti;
     allenareBicipiti.setProgress(false);

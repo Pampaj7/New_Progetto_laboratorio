@@ -23,9 +23,9 @@ public:
 
     void setDay(int i);
 
-    void setYear(int year);
+    void setYear(int i);
 
-    void setMonth(Months month);
+    void setMonth(Months months);
 
     bool operator==(const Date &da) const;
 

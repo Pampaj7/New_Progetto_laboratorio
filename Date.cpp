@@ -38,7 +38,7 @@ int Date::getMaxDays() const {
 Date::Date(int d, Months m, int y) : day(d), month(m), year(y) {
    try {
        if (day > getMaxDays())
-           throw "Number not allowed";
+           throw "Number not allowed";+
    }
    catch (const char* messaggio) {
        std::cerr << messaggio << std::endl;
@@ -47,22 +47,31 @@ Date::Date(int d, Months m, int y) : day(d), month(m), year(y) {
 }*/
 
 void Date::setDay(int i) {
-    try {
-        if (i > getMaxDays())
-            throw "Number not allowed!";
-    } //TODO
-    catch (const char *messaggio) {
-        std::cerr << messaggio << std::endl;
-    }
+
+    if (i > getMaxDays())
+        throw std::out_of_range("OUT OF RANGE! YOUR DAY IS NOT ALLOWED!");
+
     Date::day = i;
 }
 
-void Date::setYear(int year) {
-    Date::year = year;
+void Date::setYear(int i) {
+
+    if ( i > 4000)
+        throw std::out_of_range("OUT OF RANGE! YEAR TOO FAR!");
+
+    Date::year = i;
 }
 
-void Date::setMonth(Months month) {
-    Date::month = month;
+void Date::setMonth(Months months) {
+
+    Months mon = getMonth();
+    Date::month = months;
+
+    if ( getDay() > getMaxDays()) {
+        month = mon;
+        throw std::out_of_range("OUT OF RANGE! THIS MONTH CAN'T BE SETTED!");
+    }
+
 }
 
 bool Date::operator==(const Date &da) const {

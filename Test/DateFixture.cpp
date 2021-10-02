@@ -7,6 +7,8 @@
 #include "gtest/gtest.h"
 #include "../Date.h"
 
+
+
 class DateSuite : public ::testing::Test {
 protected:
     virtual void SetUp() {
@@ -36,8 +38,35 @@ TEST_F(DateSuite, ConstructorTest) {
     d6.setMonth(Months::December);
     d6.setYear(1999);
 
-    //d6.setMonth(Months::April);
+    try {
+        d6.setDay(467);
+        FAIL() << "Expected std::out_of_range";
+    }
+    catch(std::out_of_range const & err) {
+        EXPECT_EQ(err.what(), std::string("OUT OF RANGE! YOUR DAY IS NOT ALLOWED!"));
+    }
 
+    ASSERT_EQ(d6.getDay(), 31); // controllato che non sia stato cambiato il giorno
+
+    try {
+        d6.setMonth(Months::April);     // avendo come giorno impostato il 31, aprile non è disponibile
+        FAIL() << "Expected std::out_of_range";
+    }
+    catch(std::out_of_range const & err) {
+        EXPECT_EQ(err.what(), std::string("OUT OF RANGE! THIS MONTH CAN'T BE SETTED!"));
+        // eccezione generata confermata
+    }
+
+    ASSERT_EQ(d6.getMonth(), Months::December); //controllato che non sia stato cambiato il messe
+
+    try {
+        d6.setYear(345678);
+        FAIL() << "Expected std::out_of_range";
+    }
+    catch(std::out_of_range const & err) {
+        EXPECT_EQ(err.what(), std::string("OUT OF RANGE! YEAR TOO FAR!"));
+    }
+
+    ASSERT_EQ(d6.getYear(), 1999); //controllato che non sia stato cambiato l'anno
 
 }
-

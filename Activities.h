@@ -20,7 +20,7 @@ public:
 
     void removeToDo(const ToDo &aDo);
 
-    void removeLastToDo(); //TODO
+    void removeLastToDo();
 
     bool searchToDo(const ToDo &aDo) const;
 
