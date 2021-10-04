@@ -82,14 +82,12 @@ void Date::setYear(int i) {
     int yearnow = year;
     Date::year = i;
 
-    if (day == 29 && getMaxDays() == 28) {
+    if (day == 29 && getMaxDays() == 28 || i > 4000) {
         Date::year = yearnow;
         throw std::out_of_range("OUT OF RANGE! NOT LEAP YEAR!");
     }
 
-    if (i > 4000)
-        throw std::out_of_range("OUT OF RANGE! YEAR TOO FAR!");
-    Date::year = i;
+
 }
 
 void Date::setMonth(Months months) {

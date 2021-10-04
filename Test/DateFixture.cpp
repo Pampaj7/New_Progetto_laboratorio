@@ -77,7 +77,7 @@ TEST_F(DateSuite, leapYearTest) {
     ASSERT_EQ(Months::February, dp.getMonth());
     ASSERT_EQ(1700, dp.getYear());
 
-    EXPECT_THROW(dp.setDay(346), std::out_of_range );
+    EXPECT_THROW(dp.setDay(346), std::out_of_range);
 
     dp.setYear(2000);
     dp.setDay(29);
