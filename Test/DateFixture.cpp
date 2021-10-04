@@ -8,7 +8,6 @@
 #include "../Date.h"
 
 
-
 class DateSuite : public ::testing::Test {
 protected:
     virtual void SetUp() {
@@ -42,7 +41,7 @@ TEST_F(DateSuite, ConstructorTest) {
         d6.setDay(467);
         FAIL() << "Expected std::out_of_range";
     }
-    catch(std::out_of_range const & err) {
+    catch (std::out_of_range const &err) {
         EXPECT_EQ(err.what(), std::string("OUT OF RANGE! YOUR DAY IS NOT ALLOWED!"));
     }
 
@@ -52,7 +51,7 @@ TEST_F(DateSuite, ConstructorTest) {
         d6.setMonth(Months::April);     // avendo come giorno impostato il 31, aprile non è disponibile
         FAIL() << "Expected std::out_of_range";
     }
-    catch(std::out_of_range const & err) {
+    catch (std::out_of_range const &err) {
         EXPECT_EQ(err.what(), std::string("OUT OF RANGE! THIS MONTH CAN'T BE SETTED!"));
         // eccezione generata confermata
     }
@@ -63,7 +62,7 @@ TEST_F(DateSuite, ConstructorTest) {
         d6.setYear(345678);
         FAIL() << "Expected std::out_of_range";
     }
-    catch(std::out_of_range const & err) {
+    catch (std::out_of_range const &err) {
         EXPECT_EQ(err.what(), std::string("OUT OF RANGE! YEAR TOO FAR!"));
     }
 
@@ -81,7 +80,7 @@ TEST_F(DateSuite, leapYearTest) {
         dp.setDay(29);
         FAIL() << "Expected std::out_of_range";
     }
-    catch(std::out_of_range const & err) {
+    catch (std::out_of_range const &err) {
         EXPECT_EQ(err.what(), std::string("OUT OF RANGE! YOUR DAY IS NOT ALLOWED!"));
     }
 
@@ -97,7 +96,7 @@ TEST_F(DateSuite, leapYearTest) {
         dp.setYear(2001); //non bisestile con data precedente 29
         FAIL() << "Expected std::out_of_range";
     }
-    catch(std::out_of_range const & err) {
+    catch (std::out_of_range const &err) {
         EXPECT_EQ(err.what(), std::string("OUT OF RANGE! NOT LEAP YEAR!"));
     }
 
@@ -111,7 +110,7 @@ TEST_F(DateSuite, leapYearTest) {
         dp.setDay(29);
         FAIL() << "Expected std::out_of_range";
     }
-    catch(std::out_of_range const & err) {
+    catch (std::out_of_range const &err) {
         EXPECT_EQ(err.what(), std::string("OUT OF RANGE! YOUR DAY IS NOT ALLOWED!"));
     }
 
