@@ -28,19 +28,15 @@ int Date::getMaxDays() const { //dipenderà da bisestile o meno
         case Months::November:
             return 30;
         case Months::February: {
-            if (year % 4 == 0)
-            {
-                if (year % 100 == 0)
-                {
+            if (year % 4 == 0) {
+                if (year % 100 == 0) {
                     if (year % 400 == 0)
                         return 29;
                     else
                         return 28;
-                }
-                else
+                } else
                     return 29;
-            }
-            else
+            } else
                 return 28;
         }
         default:
@@ -69,24 +65,29 @@ void Date::setDay(int i) {
 }
 
 void Date::setYear(int i) {
+/*
     if (day == 29) {
-        if (i % 4 == 0)
-        {
-            if (i % 100 == 0)
-            {
+        if (i % 4 == 0) {
+            if (i % 100 == 0) {
                 if (i % 400 == 0)
                     Date::year = i;
                 else
                     throw std::out_of_range("OUT OF RANGE! NOT LEAP YEAR!");
-            }
-            else
+            } else
                 Date::year = i;
-        }
-        else
+        } else
             throw std::out_of_range("OUT OF RANGE! NOT LEAP YEAR!");
+    } */
+
+    int yearnow = year;
+    Date::year = i;
+
+    if (day == 29 && getMaxDays() == 28) {
+        Date::year = yearnow;
+        throw std::out_of_range("OUT OF RANGE! NOT LEAP YEAR!");
     }
 
-    if ( i > 4000)
+    if (i > 4000)
         throw std::out_of_range("OUT OF RANGE! YEAR TOO FAR!");
     Date::year = i;
 }
@@ -96,7 +97,7 @@ void Date::setMonth(Months months) {
     Months mon = getMonth();
     Date::month = months;
 
-    if ( getDay() > getMaxDays()) {
+    if (getDay() > getMaxDays()) {
         month = mon;
         throw std::out_of_range("OUT OF RANGE! THIS MONTH CAN'T BE SETTED!");
     }
@@ -110,6 +111,7 @@ bool Date::operator==(const Date &da) const {
                 return true;
     return false;
 }
+
 
 
 

@@ -59,7 +59,10 @@ TEST_F(DateSuite, leapYearTest) {
 
     dp.setYear(2000); // il 2000 è un anno bisestile
     dp.setDay(29); // ora è possibile dato che il 2000 è bisestile
-    ASSERT_EQ(2000, dp.getYear());
+
+    EXPECT_THROW(dp.setYear(2001), std::out_of_range); /////////
+
+    ASSERT_EQ(2000, dp.getYear()); // controllo che non sia stato settato l'anno
     ASSERT_EQ(29, dp.getDay());
     ASSERT_EQ(Months::February, dp.getMonth());
 
@@ -75,5 +78,10 @@ TEST_F(DateSuite, leapYearTest) {
     ASSERT_EQ(1700, dp.getYear());
 
     EXPECT_THROW(dp.setDay(346), std::out_of_range );
+
+    dp.setDay(29);
+    dp.setMonth(Months::February);
+    EXPECT_THROW(dp.setYear(2001), std::out_of_range);
+
 
 }
