@@ -31,8 +31,10 @@ int main() {
     }
 
 ////////////// dati base
+
+
     Date d1;
-    d1.setDay(5);
+    d1.setDay(2);
     d1.setMonth(Months::February);
     d1.setYear(2800);
     Date d2;

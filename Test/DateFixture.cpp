@@ -70,3 +70,52 @@ TEST_F(DateSuite, ConstructorTest) {
     ASSERT_EQ(d6.getYear(), 1999); //controllato che non sia stato cambiato l'anno
 
 }
+
+TEST_F(DateSuite, leapYearTest) {
+    Date dp;
+    dp.setDay(28);
+    dp.setMonth(Months::February);
+    dp.setYear(2001); //non bisestile
+
+    try {
+        dp.setDay(29);
+        FAIL() << "Expected std::out_of_range";
+    }
+    catch(std::out_of_range const & err) {
+        EXPECT_EQ(err.what(), std::string("OUT OF RANGE! YOUR DAY IS NOT ALLOWED!"));
+    }
+
+    ASSERT_EQ(28, dp.getDay());
+
+    dp.setYear(2000); // il 2000 è un anno bisestile
+    dp.setDay(29); // ora è possibile dato che il 2000 è bisestile
+    ASSERT_EQ(2000, dp.getYear());
+    ASSERT_EQ(29, dp.getDay());
+    ASSERT_EQ(Months::February, dp.getMonth());
+
+    try {
+        dp.setYear(2001); //non bisestile con data precedente 29
+        FAIL() << "Expected std::out_of_range";
+    }
+    catch(std::out_of_range const & err) {
+        EXPECT_EQ(err.what(), std::string("OUT OF RANGE! NOT LEAP YEAR!"));
+    }
+
+    ASSERT_EQ(2000, dp.getYear()); //controllato che l'anno non sia stato assegnato
+
+
+    dp.setDay(28);
+    dp.setYear(1700); //non bisestile
+
+    try {
+        dp.setDay(29);
+        FAIL() << "Expected std::out_of_range";
+    }
+    catch(std::out_of_range const & err) {
+        EXPECT_EQ(err.what(), std::string("OUT OF RANGE! YOUR DAY IS NOT ALLOWED!"));
+    }
+
+    ASSERT_EQ(28, dp.getDay());
+    ASSERT_EQ(Months::February, dp.getMonth());
+    ASSERT_EQ(1700, dp.getYear());
+}

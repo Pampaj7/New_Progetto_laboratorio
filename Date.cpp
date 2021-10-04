@@ -20,15 +20,29 @@ Months Date::getMonth() const {
     return month;
 }
 
-int Date::getMaxDays() const {
+int Date::getMaxDays() const { //dipenderà da bisestile o meno
     switch (month) {
         case Months::September:
         case Months::April:
         case Months::June:
         case Months::November:
             return 30;
-        case Months::February:
-            return 28;
+        case Months::February: {
+            if (year % 4 == 0)
+            {
+                if (year % 100 == 0)
+                {
+                    if (year % 400 == 0)
+                        return 29;
+                    else
+                        return 28;
+                }
+                else
+                    return 29;
+            }
+            else
+                return 28;
+        }
         default:
             return 31;
     }
@@ -55,10 +69,25 @@ void Date::setDay(int i) {
 }
 
 void Date::setYear(int i) {
+    if (day == 29) {
+        if (i % 4 == 0)
+        {
+            if (i % 100 == 0)
+            {
+                if (i % 400 == 0)
+                    Date::year = i;
+                else
+                    throw std::out_of_range("OUT OF RANGE! NOT LEAP YEAR!");
+            }
+            else
+                Date::year = i;
+        }
+        else
+            throw std::out_of_range("OUT OF RANGE! NOT LEAP YEAR!");
+    }
 
     if ( i > 4000)
         throw std::out_of_range("OUT OF RANGE! YEAR TOO FAR!");
-
     Date::year = i;
 }
 
