@@ -79,6 +79,7 @@ TEST_F(DateSuite, leapYearTest) {
 
     EXPECT_THROW(dp.setDay(346), std::out_of_range );
 
+    dp.setYear(2000);
     dp.setDay(29);
     dp.setMonth(Months::February);
     EXPECT_THROW(dp.setYear(2001), std::out_of_range);
